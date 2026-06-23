@@ -1,0 +1,14 @@
+[
+    {
+        "nome": "Sala 01",
+        "capacidade": "50",
+        "local": "Bloco A",
+        "status": "Ocupada"
+    },
+    {
+        "nome": "Sala 02",
+        "capacidade": "35",
+        "local": "Bloco B",
+        "status": "Reservada"
+    }
+]

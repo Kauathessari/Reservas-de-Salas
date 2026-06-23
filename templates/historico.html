@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Histórico</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+    SMART CAMPUS
+</div>
+
+<div class="container">
+
+    <div class="card">
+
+        <h2>📋 Histórico de Operações</h2>
+
+        <table>
+
+            <tr>
+                <th>Data</th>
+                <th>Sala</th>
+                <th>Ação</th>
+            </tr>
+
+            {% for h in historico %}
+
+            <tr>
+
+                <td>{{ h.data }}</td>
+
+                <td>{{ h.sala }}</td>
+
+                <td>
+
+                    {% if h.acao == "Livre" %}
+                        <span class="status-livre">
+                            🟢 Liberada
+                        </span>
+
+                    {% elif h.acao == "Reservada" %}
+                        <span class="status-reservada">
+                            🟡 Reservada
+                        </span>
+
+                    {% else %}
+                        <span class="status-ocupada">
+                            🔴 Ocupada
+                        </span>
+
+                    {% endif %}
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+        <br>
+
+        <a class="btn-voltar" href="/dashboard">
+            ← Voltar ao Painel
+        </a>
+
+    </div>
+
+</div>
+
+</body>
+</html>

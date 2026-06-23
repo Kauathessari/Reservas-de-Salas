@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Campus</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+
+<body>
+
+<div class="navbar">
+    🏫 Smart Campus - Sistema Inteligente de Reserva de Salas
+</div>
+
+<div class="container">
+
+    <div class="menu">
+        <a href="/cadastro">Cadastrar Sala</a>
+        <a href="/historico">Histórico</a>
+        <a href="/logout">Sair</a>
+    </div>
+
+    <div class="cards">
+
+        <div class="info-card">
+            <h3>Total de Salas</h3>
+            <div class="numero">{{ salas|length }}</div>
+        </div>
+
+        <div class="info-card">
+            <h3>Status</h3>
+            <div class="numero">Online</div>
+        </div>
+
+    </div>
+
+    <div class="card">
+
+        <h2>Gerenciamento de Salas</h2>
+
+        <table>
+
+            <tr>
+                <th>Sala</th>
+                <th>Capacidade</th>
+                <th>Local</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+
+            {% for sala in salas %}
+
+            <tr>
+
+                <td>{{ sala.nome }}</td>
+                <td>{{ sala.capacidade }}</td>
+                <td>{{ sala.local }}</td>
+
+                <td>
+
+                    {% if sala.status == "Livre" %}
+                        <span class="status-livre">🟢 Livre</span>
+
+                    {% elif sala.status == "Reservada" %}
+                        <span class="status-reservada">🟡 Reservada</span>
+
+                    {% elif sala.status == "Ocupada" %}
+                        <span class="status-ocupada">🔴 Ocupada</span>
+
+                    {% endif %}
+
+                </td>
+
+                <td>
+                    <a href="/alterar/{{ loop.index0 }}/Livre">
+                        🟢 Liberar
+                    </a>
+
+                    |
+
+                    <a href="/alterar/{{ loop.index0 }}/Reservada">
+                        🟡 Reservar
+                    </a>
+
+                    |
+
+                    <a href="/alterar/{{ loop.index0 }}/Ocupada">
+                        🔴 Ocupar
+                    </a>
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>
