@@ -9,6 +9,18 @@
         "nome": "Sala 02",
         "capacidade": "35",
         "local": "Bloco B",
-        "status": "Reservada"
+        "status": "Livre"
+    },
+    {
+        "nome": "Sala 103",
+        "capacidade": "30",
+        "local": "Bloco A",
+        "status": "Livre"
+    },
+    {
+        "nome": "Sala 105",
+        "capacidade": "35",
+        "local": "Bloco A",
+        "status": "Livre"
     }
 ]
